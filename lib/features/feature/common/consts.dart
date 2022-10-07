@@ -23,6 +23,16 @@ abstract class Consts {
       'Большой выбор ассортимента цветов и композиционных букетов';
   static const String bannerButtonTitle = 'Смотреть каталог';
 
+  /// Landing about strings
+  static const String aboutLineOne = 'Несколько слов о нас';
+  static const String aboutLineTwo =
+      'Наша компания работает с 2011 года и активно развивается, постоянно расширяя и поддерживая ассортимент товаров. Мы рады приветствовать Вас на нашем сайте и надеемся на долгое и взаимовыгодное сотрудничество!';
+  static const String aboutButtonTitle = 'Заказать звонок';
+
+  ///Landing catalog strings
+  static const String catalogTitle = 'Каталог товаров';
+  static const String catalogOrderButton = 'Заказать';
+
   /// Urls
   static const String aboutBg = 'assets/img/about_background_1.png';
   static const String bannerFirstBg = 'assets/img/banner_background_1.png';

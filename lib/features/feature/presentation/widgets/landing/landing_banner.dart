@@ -17,7 +17,6 @@ class _LandingBannerState extends State<LandingBanner> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * (684 / 1080),
       width: double.infinity,
       child: DecoratedBox(
         decoration: const BoxDecoration(
@@ -30,7 +29,7 @@ class _LandingBannerState extends State<LandingBanner> {
               child: BannerImage(
                 imageUrl: Consts.bannerFirstBg,
                 opacity: 0.5,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 width: size.width * 0.6,
                 size: size,
               ),
@@ -59,15 +58,12 @@ class _LandingBannerState extends State<LandingBanner> {
               alignment: Alignment.center,
               child: SizedBox(
                 width: size.width * (1180 / 1920),
-                height: size.height * (684 / 1080),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: Wrap(
                   children: [
                     SizedBox(
-                      height: size.height * (684 / 1080),
                       width: size.width * (580 / 1920),
                       child: Stack(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
                         children: [
                           Align(
                             alignment: Alignment.center,
@@ -75,56 +71,56 @@ class _LandingBannerState extends State<LandingBanner> {
                               clipBehavior: Clip.antiAliasWithSaveLayer,
                               child: Image.asset(
                                 Consts.bannerSecondFg,
-                                fit: BoxFit.fill,
+                                fit: BoxFit.contain,
                                 filterQuality: FilterQuality.high,
                               ),
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              vertical: size.height * (60 / 1080),
+                              vertical: size.height * (100 / 1080),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  Consts.bannerLineOne,
-                                  style: TextStyle(
-                                    color: AppColors.bannerTitleColor,
-                                    fontFamily: Consts.primaryFont,
-                                    fontSize: 48,
-                                    fontWeight: FontWeight.w700,
+                            child: SizedBox(
+                              width: size.width * (580 / 1920),
+                              child: Wrap(
+                                runSpacing: 25.0,
+                                children: [
+                                  const Text(
+                                    Consts.bannerLineOne,
+                                    style: TextStyle(
+                                      color: AppColors.bannerTitleColor,
+                                      fontFamily: Consts.primaryFont,
+                                      fontSize: 48,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: size.height * (24 / 1080)),
-                                const Text(
-                                  Consts.bannerLineTwo,
-                                  style: TextStyle(
-                                    color: AppColors.bannerSubtitleColor,
-                                    fontFamily: Consts.primaryFont,
-                                    fontSize: 21,
-                                    fontWeight: FontWeight.w700,
+                                  const Text(
+                                    Consts.bannerLineTwo,
+                                    style: TextStyle(
+                                      color: AppColors.bannerSubtitleColor,
+                                      fontFamily: Consts.primaryFont,
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: size.height * (51 / 1080),
-                                ),
-                                const Text(
-                                  Consts.bannerLineThree,
-                                  style: TextStyle(
-                                    color: AppColors.bannerSubtitleColor,
-                                    fontFamily: Consts.primaryFont,
-                                    fontSize: 21,
-                                    fontWeight: FontWeight.w400,
+                                  const Text(
+                                    Consts.bannerLineThree,
+                                    style: TextStyle(
+                                      color: AppColors.bannerSubtitleColor,
+                                      fontFamily: Consts.primaryFont,
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: size.height * (51 / 1080)),
-                                BannerButton(
-                                  backgroundColor: Colors.white,
-                                  title: Consts.bannerButtonTitle,
-                                  onPressed: () {},
-                                ),
-                              ],
+                                  SizedBox(height: size.height * (51 / 1080)),
+                                  BannerButton(
+                                    backgroundColor: Colors.white,
+                                    foregroundColor: Colors.black,
+                                    title: Consts.bannerButtonTitle,
+                                    onPressed: () {},
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

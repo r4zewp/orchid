@@ -3,6 +3,7 @@ import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 import 'package:orchid/features/feature/core/router/custom_router.dart';
 import 'package:orchid/features/feature/core/router/routes.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class Root extends StatelessWidget {
   const Root({super.key});
@@ -10,11 +11,31 @@ class Root extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) => ResponsiveWrapper.builder(
+        child,
+        maxWidth: 1920,
+        minWidth: 480,
+        defaultScale: true,
+        breakpoints: const [
+          ResponsiveBreakpoint.autoScale(480, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(800, name: TABLET),
+          ResponsiveBreakpoint.autoScale(1440, name: DESKTOP),
+        ],
+      ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) =>
           CustomRouter.generateRoute(settings, context),
       initialRoute: Routes.home,
       theme: ThemeData(
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+              overlayColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.hovered)) {
+              return const Color(0xff388E3C).withOpacity(0.3);
+            }
+          })),
+        ),
+        backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
           color: Colors.white,
