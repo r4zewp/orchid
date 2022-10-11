@@ -33,6 +33,13 @@ abstract class Consts {
   static const String catalogTitle = 'Каталог товаров';
   static const String catalogOrderButton = 'Заказать';
 
+  ///Landing steps strings
+  static const Map<String, String> steps = {
+    'Оставить заявку': 'Можно онлайн или по телефону',
+    'Оплата': 'Возможно безналичный и наличный расчет',
+    'Доставка': 'Различные способы доставки или самовывоз',
+  };
+
   /// Urls
   static const String aboutBg = 'assets/img/about_background_1.png';
   static const String bannerFirstBg = 'assets/img/banner_background_1.png';

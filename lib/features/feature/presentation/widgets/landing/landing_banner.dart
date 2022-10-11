@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
+import 'package:orchid/features/feature/presentation/widgets/landing/banner/header_banner_button.dart';
 
-import 'header_banner_button.dart';
-import 'header_banner_image_widget.dart';
+import 'banner/header_banner_image_widget.dart';
 
 class LandingBanner extends StatefulWidget {
   const LandingBanner({super.key});

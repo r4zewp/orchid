@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 
-import 'header_banner_button.dart';
+import 'banner/header_banner_button.dart';
 
 class LandingAbout extends StatelessWidget {
   const LandingAbout({super.key});

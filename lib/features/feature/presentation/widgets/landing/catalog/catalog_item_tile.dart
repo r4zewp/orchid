@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:orchid/features/feature/common/colors.dart';
-import 'package:orchid/features/feature/presentation/widgets/landing/catalog_order_button.dart';
 
-import '../../../common/consts.dart';
+import '../../../../common/consts.dart';
+import 'catalog_order_button.dart';
 
 class CatalogItemTile extends StatelessWidget {
   const CatalogItemTile({super.key, required this.title});
@@ -58,7 +58,7 @@ class CatalogItemTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Длина ветки - 30 см',
+                        'Длина цветка - 30 см',
                         style: TextStyle(
                           color: AppColors.bannerTitleColor,
                           fontFamily: Consts.primaryFont,

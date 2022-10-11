@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
+import 'package:orchid/features/feature/presentation/widgets/landing/footer/landing_footer.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/landing_catalog.dart';
 
 import '../../widgets/landing/landing_about.dart';
@@ -47,6 +47,7 @@ class _LandingState extends State<Landing> {
               ],
             ),
           ),
+          const LandingFooter(),
         ],
       ),
     );
