@@ -60,6 +60,8 @@ class _LandingCatalogState extends State<LandingCatalog> {
             ),
           ),
           BannerButton(
+            width: 236,
+            height: 68,
             backgroundColor: AppColors.accentColor,
             title: 'Смотреть каталог',
             onPressed: () {},

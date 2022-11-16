@@ -18,7 +18,7 @@ class Root extends StatelessWidget {
         defaultScale: true,
         breakpoints: const [
           ResponsiveBreakpoint.autoScale(480, name: MOBILE),
-          ResponsiveBreakpoint.autoScale(800, name: TABLET),
+          ResponsiveBreakpoint.resize(800, name: TABLET),
           ResponsiveBreakpoint.autoScale(1440, name: DESKTOP),
         ],
       ),

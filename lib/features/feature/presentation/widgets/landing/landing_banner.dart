@@ -114,6 +114,8 @@ class _LandingBannerState extends State<LandingBanner> {
                                   ),
                                   SizedBox(height: size.height * (51 / 1080)),
                                   BannerButton(
+                                    width: 236,
+                                    height: 68,
                                     backgroundColor: Colors.white,
                                     foregroundColor: Colors.black,
                                     title: Consts.bannerButtonTitle,

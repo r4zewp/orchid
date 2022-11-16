@@ -71,8 +71,10 @@ class LandingFooter extends StatelessWidget {
                 ),
               ),
               BannerButton(
+                width: 236,
+                height: 68,
                 backgroundColor: AppColors.accentColor,
-                title: 'Оставить заявку',
+                title: Consts.apply,
                 onPressed: () {},
                 foregroundColor: Colors.white,
               ),

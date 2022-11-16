@@ -8,17 +8,21 @@ class BannerButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
     required this.foregroundColor,
+    this.height,
+    this.width,
   });
   final String title;
   final Color backgroundColor;
   final VoidCallback onPressed;
   final Color foregroundColor;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 88,
-      width: 268,
+      height: height ?? 88,
+      width: width ?? 268,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(

@@ -89,6 +89,8 @@ class LandingAbout extends StatelessWidget {
                             ),
                           ),
                           BannerButton(
+                            width: 236,
+                            height: 68,
                             backgroundColor: AppColors.accentColor,
                             foregroundColor: Colors.white,
                             title: 'Заказать звонок',

@@ -2,10 +2,14 @@ abstract class Consts {
   /// Font-associated consts
   static const String primaryFont = 'Montserrat';
 
+  /// Default strings
+  static const String apply = 'Оставить заявку';
+
   /// Contacts
   static const String email = 'Order.orchid.imarket';
   static const String location = "г. Волгоград, ул. Менделеева д. 3";
   static const String phoneNumber = '8 (812) 844-95-49';
+  static const String timetableTitle = 'График работы: ';
   static const String timetable =
       'Ежедневно с 8:00 до 17:00 (воскресенье - выходной)';
 

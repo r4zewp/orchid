@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/footer/landing_footer.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/landing_catalog.dart';
+import 'package:orchid/features/feature/presentation/widgets/landing/last/landing_last.dart';
 
 import '../../widgets/landing/landing_about.dart';
 import '../../widgets/landing/landing_banner.dart';
+import '../../widgets/map/landing_map.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -48,6 +50,7 @@ class _LandingState extends State<Landing> {
             ),
           ),
           const LandingFooter(),
+          const LandingLast(),
         ],
       ),
     );
