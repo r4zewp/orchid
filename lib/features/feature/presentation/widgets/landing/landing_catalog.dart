@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 
+import '../alert_dialogs/added_item_to_cart_dialog.dart';
 import 'banner/header_banner_button.dart';
 import 'catalog/catalog_item_tile.dart';
 
@@ -54,7 +55,18 @@ class _LandingCatalogState extends State<LandingCatalog> {
                       horizontal: 10.0,
                       vertical: 20,
                     ),
-                    child: CatalogItemTile(title: item),
+                    child: CatalogItemTile(
+                      title: item,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => ItemToCardDialog(
+                            screenSize: size,
+                            itemName: item,
+                          ),
+                        );
+                      },
+                    ),
                   ),
               ],
             ),

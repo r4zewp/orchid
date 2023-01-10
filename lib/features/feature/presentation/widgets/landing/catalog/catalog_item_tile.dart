@@ -5,9 +5,14 @@ import '../../../../common/consts.dart';
 import 'catalog_order_button.dart';
 
 class CatalogItemTile extends StatelessWidget {
-  const CatalogItemTile({super.key, required this.title});
+  const CatalogItemTile({
+    super.key,
+    required this.title,
+    required this.onPressed,
+  });
 
   final String title;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +84,7 @@ class CatalogItemTile extends StatelessWidget {
                     ),
                   ),
                   CatalogButton(
-                    onPressed: () {},
+                    onPressed: onPressed,
                   ),
                 ],
               ),

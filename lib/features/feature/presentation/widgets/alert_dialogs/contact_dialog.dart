@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 import 'package:orchid/features/feature/presentation/widgets/alert_dialogs/contact_dialog_textfield.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/banner/header_banner_button.dart';
+
+import 'close_dialog_button.dart';
 
 class ContactDialog extends StatefulWidget {
   const ContactDialog({super.key});
@@ -38,18 +39,7 @@ class _ContactDialogState extends State<ContactDialog> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: SvgPicture.asset(
-                    'icons/xcross.svg',
-                    color: Colors.black,
-                    width: size.width * (28 / 1920),
-                    height: size.height * (28 / 1080),
-                  ),
-                ),
+                CloseDialogButton(size: size),
               ],
             ),
             Column(
