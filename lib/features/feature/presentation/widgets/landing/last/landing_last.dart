@@ -3,6 +3,8 @@ import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/banner/header_banner_button.dart';
 
+import '../../alert_dialogs/contact_dialog.dart';
+
 class LandingLast extends StatelessWidget {
   const LandingLast({super.key});
 
@@ -50,7 +52,12 @@ class LandingLast extends StatelessWidget {
                           height: 68,
                           backgroundColor: AppColors.accentColor,
                           title: Consts.apply,
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => const ContactDialog(),
+                            );
+                          },
                           foregroundColor: Colors.white,
                         )
                       ],

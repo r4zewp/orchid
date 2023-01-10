@@ -3,6 +3,7 @@ import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/footer/footer_step_tile.dart';
 
+import '../../alert_dialogs/contact_dialog.dart';
 import '../banner/header_banner_button.dart';
 
 class LandingFooter extends StatelessWidget {
@@ -75,7 +76,12 @@ class LandingFooter extends StatelessWidget {
                 height: 68,
                 backgroundColor: AppColors.accentColor,
                 title: Consts.apply,
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const ContactDialog(),
+                  );
+                },
                 foregroundColor: Colors.white,
               ),
             ],
