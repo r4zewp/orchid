@@ -116,8 +116,8 @@ class _ContactDialogState extends State<ContactDialog> {
           title: 'Заказать звонок',
           onPressed: () {},
           foregroundColor: Colors.black,
-          width: 343,
-          height: 82,
+          width: size.width * (343 / 1920),
+          height: size.height * (82 / 1080),
         ),
       ],
     );
