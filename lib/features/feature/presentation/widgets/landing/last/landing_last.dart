@@ -29,11 +29,10 @@ class LandingLast extends StatelessWidget {
                     width: size.width * (452 / 1920),
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
+                        Wrap(
                           children: const [
                             /// TODO: add phone icon
-                            Text(
+                            SelectableText(
                               Consts.phoneNumber,
                               style: TextStyle(
                                 fontFamily: Consts.primaryFont,

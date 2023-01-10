@@ -61,7 +61,7 @@ class _LandingBannerState extends State<LandingBanner> {
                 child: Wrap(
                   children: [
                     SizedBox(
-                      width: size.width * (580 / 1920),
+                      width: size.width * (650 / 1920),
                       child: Stack(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         children: [
@@ -81,7 +81,7 @@ class _LandingBannerState extends State<LandingBanner> {
                               vertical: size.height * (100 / 1080),
                             ),
                             child: SizedBox(
-                              width: size.width * (580 / 1920),
+                              width: size.width * (650 / 1920),
                               child: Wrap(
                                 runSpacing: 25.0,
                                 children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:orchid/features/feature/common/colors.dart';
 import 'package:orchid/features/feature/common/consts.dart';
+import 'package:orchid/features/feature/presentation/widgets/alert_dialogs/contact_dialog.dart';
 
 import 'banner/header_banner_button.dart';
 
@@ -94,7 +95,12 @@ class LandingAbout extends StatelessWidget {
                             backgroundColor: AppColors.accentColor,
                             foregroundColor: Colors.white,
                             title: 'Заказать звонок',
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => const ContactDialog(),
+                              );
+                            },
                           )
                         ],
                       ),
