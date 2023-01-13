@@ -50,6 +50,7 @@ class _LandingState extends State<Landing> {
             ),
           ),
           const LandingFooter(),
+          const LandingMap(),
           const LandingLast(),
         ],
       ),
