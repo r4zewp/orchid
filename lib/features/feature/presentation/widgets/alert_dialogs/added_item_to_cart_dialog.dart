@@ -67,7 +67,7 @@ class ItemToCardDialog extends StatelessWidget {
               title: 'Продолжить покупки',
               onPressed: () {},
               foregroundColor: Colors.black,
-              width: screenSize.width * (420 / 1920),
+              width: 300,
               height: screenSize.height * (82 / 1080),
             ),
             const SizedBox(height: 16),
