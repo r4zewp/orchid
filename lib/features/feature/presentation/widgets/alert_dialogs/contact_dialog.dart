@@ -35,30 +35,6 @@ class _ContactDialogState extends State<ContactDialog> {
   bool isNameValid = true;
   bool isNumberValid = true;
 
-  ////// Name validation
-  void validateNameField(String nameValue) {
-    if (nameValue.isNotEmpty && nameValue.length > 3) {
-      if (isNameValid == false) {
-        setState(() => isNameValid = true);
-      }
-    } else {
-      if (isNameValid == true) {
-        setState(() => isNameValid = false);
-      }
-    }
-  }
-
-  ////// Number validation
-  void validateNumberField() {
-    if (numberMask.isFill()) {
-      setState(() => isNumberValid = true);
-    } else {
-      if (isNumberValid = true) {
-        setState(() => isNumberValid = false);
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -170,7 +146,7 @@ class _ContactDialogState extends State<ContactDialog> {
             BannerButton(
               backgroundColor: const Color(0XffAAB883),
               title: 'Заказать звонок',
-              onPressed: () {},
+              onPressed: isNameValid && isNumberValid ? () {} : () {},
               foregroundColor: Colors.black,
               width: 343,
               height: size.height * (82 / 1080),
@@ -179,5 +155,29 @@ class _ContactDialogState extends State<ContactDialog> {
         ),
       ],
     );
+  }
+
+  ////// Name validation
+  void validateNameField(String nameValue) {
+    if (nameValue.isNotEmpty && nameValue.length > 3) {
+      if (isNameValid == false) {
+        setState(() => isNameValid = true);
+      }
+    } else {
+      if (isNameValid == true) {
+        setState(() => isNameValid = false);
+      }
+    }
+  }
+
+  ////// Number validation
+  void validateNumberField() {
+    if (numberMask.isFill()) {
+      setState(() => isNumberValid = true);
+    } else {
+      if (isNumberValid = true) {
+        setState(() => isNumberValid = false);
+      }
+    }
   }
 }
