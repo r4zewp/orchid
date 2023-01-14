@@ -119,7 +119,6 @@ class _ContactDialogState extends State<ContactDialog> {
       ),
       content: SingleChildScrollView(
         child: SizedBox(
-          height: 300,
           width: 300,
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -146,7 +145,6 @@ class _ContactDialogState extends State<ContactDialog> {
                 errorText: isNumberValid ? '' : "Заполните телефон полностью",
                 onChanged: (value) => validateNumberField(),
               ),
-              const SizedBox(height: 8),
             ],
           ),
         ),
