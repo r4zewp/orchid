@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 
 class ContactTextField extends StatefulWidget {
@@ -9,6 +10,7 @@ class ContactTextField extends StatefulWidget {
     required this.title,
     required this.screenSize,
     required this.hintText,
+    required this.formatters,
   });
 
   final TextEditingController ctrl;
@@ -16,6 +18,7 @@ class ContactTextField extends StatefulWidget {
   final String title;
   final String hintText;
   final Size screenSize;
+  final List<TextInputFormatter> formatters;
 
   @override
   State<ContactTextField> createState() => _ContactTextFieldState();
@@ -38,6 +41,7 @@ class _ContactTextFieldState extends State<ContactTextField> {
         ),
         SizedBox(height: widget.screenSize.height * (8 / 1080)),
         TextField(
+          inputFormatters: widget.formatters,
           decoration: InputDecoration(
             focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(15.0)),

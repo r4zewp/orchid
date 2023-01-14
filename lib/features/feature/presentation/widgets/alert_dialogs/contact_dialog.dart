@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:orchid/features/feature/common/consts.dart';
 import 'package:orchid/features/feature/presentation/widgets/alert_dialogs/contact_dialog_textfield.dart';
 import 'package:orchid/features/feature/presentation/widgets/landing/banner/header_banner_button.dart';
@@ -13,8 +15,22 @@ class ContactDialog extends StatefulWidget {
 }
 
 class _ContactDialogState extends State<ContactDialog> {
-  TextEditingController nameCtrl = TextEditingController();
-  TextEditingController phoneCtrl = TextEditingController();
+  /// TextField controllers.
+  final TextEditingController nameCtrl = TextEditingController();
+  final TextEditingController phoneCtrl = TextEditingController();
+
+  /// Name formatters
+  final List<TextInputFormatter> nameFormatters = [
+    FilteringTextInputFormatter.allow(RegExp(r'[а-яёА-ЯË]|[a-zA-Z]|\s')),
+    LengthLimitingTextInputFormatter(35),
+  ];
+
+  /// Number formatters
+  /// Only RU format
+  final MaskTextInputFormatter numberMask = MaskTextInputFormatter(
+    mask: "+7 (###) ###-##-##",
+    filter: {'#': RegExp(r'[0-9]')},
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +47,13 @@ class _ContactDialogState extends State<ContactDialog> {
         borderRadius: BorderRadius.all(Radius.circular(30.0)),
       ),
       titlePadding: EdgeInsets.only(
-          top: size.height * (50 / 1080), bottom: size.height * (16 / 1080)),
+        top: size.height * (50 / 1080),
+        bottom: size.height * (16 / 1080),
+      ),
       title: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * (100.0 / 1920)),
+        padding: EdgeInsets.symmetric(
+          horizontal: size.width * (100.0 / 1920),
+        ),
         child: Wrap(
           children: [
             Row(
@@ -78,6 +98,7 @@ class _ContactDialogState extends State<ContactDialog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               ContactTextField(
+                formatters: nameFormatters,
                 screenSize: size,
                 title: 'Ваше имя',
                 ctrl: nameCtrl,
@@ -86,11 +107,12 @@ class _ContactDialogState extends State<ContactDialog> {
               ),
               SizedBox(height: size.height * (32 / 1080)),
               ContactTextField(
+                formatters: [numberMask],
                 screenSize: size,
                 ctrl: phoneCtrl,
                 type: TextInputType.phone,
                 title: 'Номер телефона',
-                hintText: 'введите номер телефона в международном формате',
+                hintText: '+7 (123) 456-78-90',
               ),
               const SizedBox(height: 8),
               Text(
