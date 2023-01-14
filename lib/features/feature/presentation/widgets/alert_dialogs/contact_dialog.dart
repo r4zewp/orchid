@@ -25,12 +25,39 @@ class _ContactDialogState extends State<ContactDialog> {
     LengthLimitingTextInputFormatter(35),
   ];
 
-  /// Number formatters
-  /// Only RU format
+  /// Number formatters. Only RU format.
   final MaskTextInputFormatter numberMask = MaskTextInputFormatter(
     mask: "+7 (###) ###-##-##",
     filter: {'#': RegExp(r'[0-9]')},
   );
+
+  /// Fields validation
+  bool isNameValid = true;
+  bool isNumberValid = true;
+
+  ////// Name validation
+  void validateNameField(String nameValue) {
+    if (nameValue.isNotEmpty && nameValue.length > 3) {
+      if (isNameValid == false) {
+        setState(() => isNameValid = true);
+      }
+    } else {
+      if (isNameValid == true) {
+        setState(() => isNameValid = false);
+      }
+    }
+  }
+
+  ////// Number validation
+  void validateNumberField() {
+    if (numberMask.isFill()) {
+      setState(() => isNumberValid = true);
+    } else {
+      if (isNumberValid = true) {
+        setState(() => isNumberValid = false);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +130,10 @@ class _ContactDialogState extends State<ContactDialog> {
                 title: 'Ваше имя',
                 ctrl: nameCtrl,
                 type: TextInputType.name,
-                hintText: 'введите имя и фамилию',
+                hintText: 'Введите имя и фамилию',
+                errorText:
+                    isNameValid ? '' : "Минимальное количество символов - 4",
+                onChanged: (value) => validateNameField(value),
               ),
               SizedBox(height: size.height * (32 / 1080)),
               ContactTextField(
@@ -113,18 +143,10 @@ class _ContactDialogState extends State<ContactDialog> {
                 type: TextInputType.phone,
                 title: 'Номер телефона',
                 hintText: '+7 (123) 456-78-90',
+                errorText: isNumberValid ? '' : "Заполните телефон полностью",
+                onChanged: (value) => validateNumberField(),
               ),
               const SizedBox(height: 8),
-              Text(
-                'Оставляя заявку, вы соглашаетесь на обработку персональных данных',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: Consts.primaryFont,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xff000000).withOpacity(0.5),
-                ),
-              ),
             ],
           ),
         ),
@@ -132,14 +154,30 @@ class _ContactDialogState extends State<ContactDialog> {
       buttonPadding: EdgeInsets.zero,
       actionsAlignment: MainAxisAlignment.center,
       actionsPadding: const EdgeInsets.only(bottom: 32),
+      actionsOverflowAlignment: OverflowBarAlignment.center,
       actions: [
-        BannerButton(
-          backgroundColor: const Color(0XffAAB883),
-          title: 'Заказать звонок',
-          onPressed: () {},
-          foregroundColor: Colors.black,
-          width: size.width * (343 / 1920),
-          height: size.height * (82 / 1080),
+        Column(
+          children: [
+            Text(
+              'Оставляя заявку, вы соглашаетесь на обработку персональных данных',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: Consts.primaryFont,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xff000000).withOpacity(0.5),
+              ),
+            ),
+            SizedBox(height: size.height * (16 / 1080)),
+            BannerButton(
+              backgroundColor: const Color(0XffAAB883),
+              title: 'Заказать звонок',
+              onPressed: () {},
+              foregroundColor: Colors.black,
+              width: size.width * (343 / 1920),
+              height: size.height * (82 / 1080),
+            ),
+          ],
         ),
       ],
     );

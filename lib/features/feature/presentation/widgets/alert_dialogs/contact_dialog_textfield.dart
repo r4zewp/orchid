@@ -11,14 +11,18 @@ class ContactTextField extends StatefulWidget {
     required this.screenSize,
     required this.hintText,
     required this.formatters,
+    required this.onChanged,
+    required this.errorText,
   });
 
   final TextEditingController ctrl;
   final TextInputType type;
   final String title;
   final String hintText;
+  final String errorText;
   final Size screenSize;
   final List<TextInputFormatter> formatters;
+  final Function(String value) onChanged;
 
   @override
   State<ContactTextField> createState() => _ContactTextFieldState();
@@ -41,8 +45,10 @@ class _ContactTextFieldState extends State<ContactTextField> {
         ),
         SizedBox(height: widget.screenSize.height * (8 / 1080)),
         TextField(
+          onChanged: widget.onChanged,
           inputFormatters: widget.formatters,
           decoration: InputDecoration(
+            errorText: widget.errorText,
             focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
               borderSide: BorderSide(
@@ -57,13 +63,36 @@ class _ContactTextFieldState extends State<ContactTextField> {
                 width: 1,
               ),
             ),
-            errorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15.0)),
-              borderSide: BorderSide(
-                color: Colors.red,
-                width: 2,
-              ),
-            ),
+            errorBorder: widget.errorText.isNotEmpty
+                ? const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    borderSide: BorderSide(
+                      color: Colors.red,
+                      width: 2,
+                    ),
+                  )
+                : const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
+            focusedErrorBorder: widget.errorText.isNotEmpty
+                ? const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    borderSide: BorderSide(
+                      color: Colors.red,
+                      width: 2,
+                    ),
+                  )
+                : const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 32,
               vertical: 32,
